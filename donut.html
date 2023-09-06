@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<audio id="beep" src="https://maxw.com/beep2.mp3"></audio>
+<div style="background-color:rgb(132, 238, 190);width:640px;">
+<canvas id="gameCanvas"width="640" height ="480"></canvas>
+</div>
+<div style="display:block;">
+<img id="dog"src="https://maxw.com/smuffy.png">
+<img id="donut"src="https://maxw.com/donut.png">
+</div>
+<script>
+var ctx=gameCanvas.getContext("2d");
+var x=[100,300,500];
+var y=[0,0,0];
+var speed=[2,1,3];
+var dogx=300,changeX=0, score=0;
+var gameTimer=setInterval(mainLoop,20);
+function mainLoop(){
+
+    ctx.clearRect(0,0,640,480);
+    ctx.font="30px arial";
+    ctx.fillText("score: "+score,10,30);
+   
+    for(var n=0; n<3; n++){
+
+        ctx.drawImage(donut,x[n],y[n],80,80);
+        y[n] +=speed[n];
+        //chekforhints(n)
+        if (y[n]>480){
+            y[n]=-80; x[n]=Math.random()*600;
+        }
+    }
+    ctx.drawImage(dog,dogx,400,80,80);
+    dogx+=changeX;
+ }
+ document.onkeydown=keyPressed;
+ function keyPressed(e){
+    var k=e.keyCode;
+
+if(k==37){changeX=-4;}
+ if(k==39){changeX=4;}
+
+ }
+
+
+ 
+</script>
+</html>
