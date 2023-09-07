@@ -25,7 +25,7 @@ function mainLoop(){
 
         ctx.drawImage(donut,x[n],y[n],80,80);
         y[n] +=speed[n];
-        //chekforhints(n)
+        checkForHits(n)
         if (y[n]>480){
             y[n]=-80; x[n]=Math.random()*600;
         }
@@ -41,8 +41,18 @@ if(k==37){changeX=-4;}
  if(k==39){changeX=4;}
 
  }
+function chekForHits(n){
 
+}
+if ((Math.abs(400-y[n])<60)&&
+(Math.abs(dogX-x[n])){
+    score+=1;
+y[n]=-80; x[n]=Math.random()*600;
+beep.play();
+}
+}
 
+)
  
 </script>
 </html>
